@@ -14,7 +14,7 @@ import static java.lang.Math.floor;
 public final class MudkipsUtils extends JavaPlugin {
     private static MudkipsUtils instance;
     public static Long day;
-    public static Logger log = Logger.getLogger("MudkipsUtils");
+    public static Logger log = Logger.getLogger("MudsUtils");
     @Override
 
     public void onEnable() {
