@@ -6,8 +6,8 @@ public class Funcs {
 
 
     public static void ShowDate(Player p){
-        FileManager file = new FileManager(MudkipsUtils.getInstance(), "Data.yml");
-        Long day = MudkipsUtils.getInstance().day;
+        FileManager file = new FileManager(MudsUtils.getInstance(), "Data.yml");
+        Long day = MudsUtils.getInstance().day;
         String textLocation = "Title";
         try {
             textLocation = file.getConfig().getString(p.getUniqueId() + ".DateLocate");
