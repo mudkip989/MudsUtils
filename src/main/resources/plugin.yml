@@ -1,0 +1,13 @@
+name: MudkipsUtils
+version: '${project.version}'
+main: mudkip989.spigot.plugin.mudkipsutils.MudkipsUtils
+api-version: 1.19
+prefix: MudkipsUtils
+load: POSTWORLD
+authors: [ mudkip989 ]
+description: A combination of things mudkip989 wanted in this plugin.
+commands:
+  day:
+    usage: /<command>
+    description: Shows current day and more.
+    aliases: [date]
