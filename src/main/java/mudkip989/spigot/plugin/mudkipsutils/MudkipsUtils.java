@@ -52,6 +52,7 @@ public final class MudkipsUtils extends JavaPlugin {
         }).runTaskTimerAsynchronously(getInstance(), 0L, 20L);
 
         this.getCommand("day").setExecutor(new CommandDay());
+        this.getCommand("day").setTabCompleter(new TADay());
         this.registerEvents();
 
     }

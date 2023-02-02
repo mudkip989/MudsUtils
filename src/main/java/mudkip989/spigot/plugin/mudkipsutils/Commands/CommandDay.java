@@ -49,7 +49,7 @@ public class CommandDay implements CommandExecutor {
                             if(args.length>3) {
                                 file.getConfig().set(player.getUniqueId() + ".DateFormat.Actionbar", text);
                             }else {
-                                file.getConfig().set(player.getUniqueId() + ".DateFormat.Actionbar", "");
+                                file.getConfig().set(player.getUniqueId() + ".DateFosmat.Actionbar", "");
                             }
                             break;
                         case "Chat":
@@ -69,6 +69,16 @@ public class CommandDay implements CommandExecutor {
                 } else {
                     player.sendMessage("Oh come on! Just use the Tab Autocompletor. This should have been easy.");
                     return false;
+                }
+            }else if(Objects.equals(args[0], "help")){
+                if(Objects.equals(args[1], "formatting")){
+                    player.sendMessage("The following are available placeholders in your formatting.");
+                    player.sendMessage("|d| - Day Count");
+                    player.sendMessage("|dd| - Day of Month");
+                    player.sendMessage("|D| - Day of Week");
+                    player.sendMessage("|m| - Month Number");
+                    player.sendMessage("|M| - Month Name");
+                    player.sendMessage("|y| - Year");
                 }
             }
 
