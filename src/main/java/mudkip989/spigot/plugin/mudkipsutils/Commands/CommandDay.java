@@ -6,7 +6,7 @@ import org.bukkit.entity.*;
 
 import java.util.*;
 
-import static mudkip989.spigot.plugin.mudkipsutils.MudsUtils.log;
+import static mudkip989.spigot.plugin.mudkipsutils.MudkipsUtils.log;
 import static org.bukkit.Bukkit.getPlayer;
 
 public class CommandDay implements CommandExecutor {
@@ -20,10 +20,51 @@ public class CommandDay implements CommandExecutor {
                 Funcs.ShowDate(player);
 
             }else if(Objects.equals(args[0], "set")){
-                if(Objects.equals(args[1], "display")){
-                    FileManager file = new FileManager(MudsUtils.getInstance(), "Data.yml");
-                    file.getConfig().set(player.getUniqueId() +".DateLocate", args[2]);
-                    file.saveConfig();
+                if(Objects.equals(args[1], "format")){
+                    FileManager file = new FileManager(MudkipsUtils.getInstance(), "Data.yml");
+                    String text = "";
+                    int i = 0;
+                    for(String arg : args){
+                        if(i>2){
+                            text += " " + arg;
+                        }
+                        i++;
+                    }
+                    switch(args[2]){
+                        case "Title":
+                            if(args.length>3) {
+                                file.getConfig().set(player.getUniqueId() + ".DateFormat.Title", text);
+                            }else {
+                                file.getConfig().set(player.getUniqueId() + ".DateFormat.Title", "");
+                            }
+                            break;
+                        case "SubTitle":
+                            if(args.length>3) {
+                                file.getConfig().set(player.getUniqueId() + ".DateFormat.SubTitle", text);
+                            }else {
+                                file.getConfig().set(player.getUniqueId() + ".DateFormat.SubTitle", "");
+                            }
+                            break;
+                        case "Actionbar":
+                            if(args.length>3) {
+                                file.getConfig().set(player.getUniqueId() + ".DateFormat.Actionbar", text);
+                            }else {
+                                file.getConfig().set(player.getUniqueId() + ".DateFormat.Actionbar", "");
+                            }
+                            break;
+                        case "Chat":
+                            if(args.length>3) {
+                                file.getConfig().set(player.getUniqueId() + ".DateFormat.Chat", text);
+                            }else {
+                                file.getConfig().set(player.getUniqueId() + ".DateFormat.Chat", "");
+                            }
+                            break;
+                        default:
+
+                            break;
+
+                    }
+                file.saveConfig();
 
                 } else {
                     player.sendMessage("Oh come on! Just use the Tab Autocompletor. This should have been easy.");
@@ -32,7 +73,7 @@ public class CommandDay implements CommandExecutor {
             }
 
         }else{
-            log.info( "Current day is Day " + MudsUtils.getInstance().day);
+            log.info( "Current day is Day " + MudkipsUtils.getInstance().day);
         }
         return true;
     }

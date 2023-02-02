@@ -3,6 +3,7 @@ package mudkip989.spigot.plugin.mudkipsutils;
 import mudkip989.spigot.plugin.mudkipsutils.Commands.*;
 import org.bukkit.*;
 import org.bukkit.entity.*;
+import org.bukkit.plugin.*;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.*;
 
@@ -11,10 +12,10 @@ import java.util.logging.*;
 
 import static java.lang.Math.floor;
 
-public final class MudsUtils extends JavaPlugin {
-    private static MudsUtils instance;
+public final class MudkipsUtils extends JavaPlugin {
+    private static MudkipsUtils instance;
     public static Long day;
-    public static Logger log = Logger.getLogger("MudsUtils");
+    public static Logger log = Logger.getLogger("MudkipsUtils");
     @Override
 
     public void onEnable() {
@@ -51,12 +52,15 @@ public final class MudsUtils extends JavaPlugin {
         }).runTaskTimerAsynchronously(getInstance(), 0L, 20L);
 
         this.getCommand("day").setExecutor(new CommandDay());
-
+        this.registerEvents();
 
     }
 
-
-    public static MudsUtils getInstance() {
+    void registerEvents() {
+        PluginManager pm = Bukkit.getPluginManager();
+        pm.registerEvents(new Events(), this);
+    }
+    public static MudkipsUtils getInstance() {
         return instance;
     }
 }

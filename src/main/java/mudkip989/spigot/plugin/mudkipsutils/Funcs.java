@@ -3,7 +3,6 @@ package mudkip989.spigot.plugin.mudkipsutils;
 import net.md_5.bungee.api.*;
 import net.md_5.bungee.api.chat.*;
 import org.bukkit.entity.*;
-import org.checkerframework.checker.regex.qual.*;
 
 import java.time.*;
 import java.time.format.*;
@@ -13,8 +12,8 @@ public class Funcs {
 
 
     public static void ShowDate(Player p){
-        FileManager file = new FileManager(MudsUtils.getInstance(), "Data.yml");
-        Long day = MudsUtils.getInstance().day;
+        FileManager file = new FileManager(MudkipsUtils.getInstance(), "Data.yml");
+        Long day = MudkipsUtils.getInstance().day;
 
         //|d| |dd| |D| |m| |M| |y|
         //String TitleText = "Day |d|";
@@ -41,10 +40,10 @@ public class Funcs {
 
     public static String formatDate(String format) {
         String result = format;
-        long days = 123456789;
+        long days = MudkipsUtils.getInstance().day;
         LocalDate start = LocalDate.ofYearDay(0, 1);
         LocalDate date = start.plusDays(days);
-        result = result.replace("|d|", String.valueOf(date.getDayOfWeek().getValue()));
+        result = result.replace("|d|", MudkipsUtils.getInstance().day.toString());
         result = result.replace("|dd|", String.valueOf(date.getDayOfMonth()));
         result = result.replace("|D|", date.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.ENGLISH));
         result = result.replace("|m|", String.valueOf(date.getMonthValue()));

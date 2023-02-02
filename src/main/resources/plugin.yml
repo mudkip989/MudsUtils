@@ -1,8 +1,8 @@
-name: MudsUtils
+name: MudkipsUtils
 version: '${project.version}'
 main: mudkip989.spigot.plugin.mudkipsutils.MudkipsUtils
 api-version: 1.19
-prefix: MudsUtils
+prefix: MudkipsUtils
 load: POSTWORLD
 authors: [ mudkip989 ]
 description: A combination of things mudkip989 wanted in this plugin.
