@@ -27,7 +27,7 @@ public class Funcs {
         String ChatText = file.getConfig().getString(p.getUniqueId() + ".DateFormat.Chat");
         if(!(TitleText == "" && SubTitleText == "")){
 
-            p.sendTitle(formatDate(TitleText), formatDate(SubTitleText), 20, 20, 20);
+            p.sendTitle(formatDate(TitleText), formatDate(SubTitleText), 20, 60, 40);
         }
         if(ActionbarText != ""){
             p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(formatDate(ActionbarText)));
